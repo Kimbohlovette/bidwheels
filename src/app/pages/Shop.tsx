@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Cars = () => {
+const Shop = () => {
 	return <div className="min-h-screen">Cars</div>;
 };
 
-export default Cars;
+export default Shop;

@@ -4,7 +4,7 @@ import { BsSearch } from 'react-icons/bs'
 const logo = require('../assets/logo-white.png');
 const Navbar = () => {
 	return (
-		<div className="bg-primary flex flex-row justify-between items-center py-4 px-4 ">
+		<div className="bg-primary flex flex-row justify-between items-center py-8 px-8 font-semibold text-lg text-white">
 			<NavLink to="/">
 				<div className="cursor-pointer">
 					<img
@@ -27,7 +27,7 @@ const Navbar = () => {
 					<NavLink to="/">
 						<li className="cursor-pointer">Home</li>
 					</NavLink>
-					<NavLink to="/cars">
+					<NavLink to="/shop">
 						<li className="cursor-pointer">Buy</li>
 					</NavLink>
 					<NavLink to="/sell">
