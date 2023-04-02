@@ -11,7 +11,7 @@ const MyApp = (): JSX.Element => {
 		<div>
       <Auth />
 			<Navbar />
-			<div className="text-center">
+			<div className="">
 				<Outlet />
 			</div>
 			<Footer />
