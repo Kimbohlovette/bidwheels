@@ -128,11 +128,11 @@ const Home = () => {
 					</div>
 					<div className="action-card flex-1 py-16 px-8 bg-primary/80 max-w-lg">
 						<p className="text-slate-100 text-sm">
-							Shop the latest iPhone models and accessroies, Save
-							with Apple Trade-In, carrier offers, and flexible
-							monthly payment options. Get expert help today.
+							Shop the latest car models and accessories, Save
+							with Bid 4 Wheels Trade-In, carrier offers, and flexible
+							payment options. Get expert help today.
 						</p>
-						<button className="button w-48 text-primary bg-white border mt-8 font-semibold text-lg">
+						<button className="button w-48 text-primary bg-white border mt-8 font-semibold text-lg hover:bg-primary hover:text-white">
 							BUY
 						</button>
 					</div>
