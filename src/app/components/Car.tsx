@@ -2,7 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const Car = ({ car }: any) => {
-    console.log('car: ', car)
     return (
         <div className="max-w-sm my-8">
             <img className="object-center object-cover aspect-video" src={car.image} alt="" />

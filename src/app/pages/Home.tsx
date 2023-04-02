@@ -1,38 +1,94 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import Car from "../components/Car";
+import axios from "axios";
+import { base_url } from "../App";
 
 const whoweare = require("../assets/whoweare.png");
 const bgImage = require('../assets/hero-bg-image1.jpg');
 
+
+
 const Home = () => {
-	const cars = [
-		{
-			image: require("../assets/m23.jpeg"),
-			name: "2023 Mini Coper",
-			description:
-				"The iconic mini coper has grown both larger and more advanced over the years, but it's still a small, agile car, with very attractive styling for 2023",
-		},
-		{
-			image: require("../assets/t1.jpeg"),
-			name: "2023 Toyota Bz4X Review",
-			description:
-				"Toyota finally enters the Ev game with a small crossover aimed at the heart of the market",
-		},
-		{
-			image: require("../assets/b1.jpeg"),
-			name: "Bentley Bentayga",
-			description:
-				"This is a mid-size luxury crossover SUV produced by Bentley Motors since the late 2015s",
-		},
-		{
-			image: require("../assets/m1.jpeg"),
-			name: "Mercedez-Bend",
-			description:
-				"The Mercedes-Benz CIS-class is a form-first art piece that just so happens to provide the practicality of a chic four-door Sedan. View 2023 CIs",
-		},
-	];
+	const [products, setProducts] = useState<{
+		coverImage: string,
+		name: string,
+		images: string[],
+		description: string,
+		minPrice: number,
+		bidDuration: number,
+		carModel: string,
+		fuelType: string,
+		engineType: string
+	}[]>([])
+	useEffect(() => {
+		const getProducts = async () => {
+			const productsFound = await axios.get(`${base_url}/product`);
+			console.log('products found: ', productsFound.data.data)
+			setProducts(productsFound.data.data)
+			localStorage.setItem('@products', JSON.stringify(productsFound.data.data))
+		}
+		const loadProduct = async () => {
+			// const productsString = localStorage.getItem('@products')
+			// console.log('productString: ', productsString)
+			// if (productsString) {
+			// 	const localProducts = JSON.parse(productsString)
+			// 	console.log('getting local: ', localProducts)
+			// 	if (localProducts.length > 0) {
+			// 		setProducts(localProducts)
+			// 	} else {
+			// 		getProducts()
+			// 	}
+			// } else {
+			getProducts()
+			// }
+		}
+		loadProduct()
+	}, [])
+	// const cars = [
+	// 	{
+	// 		image: require("../assets/m23.jpeg"),
+	// 		name: "2023 Mini Coper",
+	// 		description:
+	// 			"The iconic mini coper has grown both larger and more advanced over the years, but it's still a small, agile car, with very attractive styling for 2023",
+	// 	},
+	// 	{
+	// 		image: require("../assets/t1.jpeg"),
+	// 		name: "2023 Toyota Bz4X Review",
+	// 		description:
+	// 			"Toyota finally enters the Ev game with a small crossover aimed at the heart of the market",
+	// 	},
+	// 	{
+	// 		image: require("../assets/b1.jpeg"),
+	// 		name: "Bentley Bentayga",
+	// 		description:
+	// 			"This is a mid-size luxury crossover SUV produced by Bentley Motors since the late 2015s",
+	// 	},
+	// 	{
+	// 		image: require("../assets/m1.jpeg"),
+	// 		name: "Mercedez-Benz",
+	// 		description:
+	// 			"The Mercedes-Benz CIS-class is a form-first art piece that just so happens to provide the practicality of a chic four-door Sedan. View 2023 CIs",
+	// 	},
+	// ];
+	let cars = []
+
+	console.log('products: ', products)
+
+	cars = products.map((p) => {
+		const carObj = {
+			name: p.name,
+			image: require(`../assets/${p.coverImage}`),
+			description: p.description
+		}
+
+		return carObj
+	})
+
+	console.log('cars after filter: ', cars)
+
+
 	return (
 		<div className="min-h-screen">
 			<section
@@ -121,7 +177,7 @@ const Home = () => {
 						</h2>
 						<div className="flex flex-row w-[50%]">
 							{Array.from({ length: 5 }, (item, index) => index).map((_, i) => (
-								<div className="flex-1 mr-[1px] bg-primary h-3" />
+								<div className="flex-1 mr-[1px] bg-primary h-3" key={i} />
 							))}
 						</div>
 					</div>
@@ -129,7 +185,7 @@ const Home = () => {
 						<h2 className="text-primary font-semibold text-2xl mb-4">Value</h2>
 						<div className="flex flex-row w-[50%]">
 							{Array.from({ length: 5 }, (item, index) => index).map((_, i) => (
-								<div className="flex-1 mr-[1px] bg-primary h-3" />
+								<div className="flex-1 mr-[1px] bg-primary h-3" key={i} />
 							))}
 						</div>
 					</div>
@@ -139,7 +195,7 @@ const Home = () => {
 						</h2>
 						<div className="flex flex-row w-[50%]">
 							{Array.from({ length: 5 }, (item, index) => index).map((_, i) => (
-								<div className="flex-1 mr-[1px] bg-primary h-3" />
+								<div className="flex-1 mr-[1px] bg-primary h-3" key={i} />
 							))}
 						</div>
 					</div>
@@ -181,9 +237,8 @@ const Home = () => {
 				</div>
 				<div className="flex flex-row flex-wrap justify-center gap-16 [&>*]:flex-1">
 					{
-						cars.map((car) => {
-							console.log('car: ', car)
-							return <Car car={car} />
+						cars.map((car, index) => {
+							return <Car car={car} key={index} />
 						})
 					}
 				</div>
