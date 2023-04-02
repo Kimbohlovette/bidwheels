@@ -4,12 +4,13 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import AddCarForm from './pages/AddCarForm';
-import Auth from './components/Auth';
 import Shop from './pages/Shop';
+
+export const base_url = 'https://api-bid4wheels.onrender.com/api/v1'
+
 const MyApp = (): JSX.Element => {
 	return (
 		<div>
-			<Auth />
 			<Navbar />
 			<div>
 				<Outlet />
