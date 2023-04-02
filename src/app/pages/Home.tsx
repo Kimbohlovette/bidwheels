@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import { BsStarFill, BsStarHalf } from 'react-icons/bs';
 import { BiPlusMedical } from 'react-icons/bi';
+import { MdEmail } from 'react-icons/md';
 import Car from '../components/Car';
 
 const Home = () => {
@@ -31,6 +32,33 @@ const Home = () => {
 			name: 'Mercedez-Bend',
 			description:
 				'The Mercedes-Benz CIS-class is a form-first art piece that just so happens to provide the practicality of a chic four-door Sedan. View 2023 CIs',
+		},
+	];
+
+	const faqs: { title: string; text: string }[] = [
+		{
+			title: 'Can you sell a car without a title?',
+			text: '	Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, nobis. Deleniti illo accusamus facilis unde facere debitis. Blanditiis rerum quas saepe hic beatae nihil eaque aliquid placeat. Rem, odio optio.',
+		},
+		{
+			title: 'What are my payment options?',
+			text: '	Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, nobis. Deleniti illo accusamus facilis unde facere debitis. Blanditiis rerum quas saepe hic beatae nihil eaque aliquid placeat. Rem, odio optio.',
+		},
+		{
+			title: 'Will I always receive an offer?',
+			text: '	Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, nobis. Deleniti illo accusamus facilis unde facere debitis. Blanditiis rerum quas saepe hic beatae nihil eaque aliquid placeat. Rem, odio optio.',
+		},
+		{
+			title: 'Can you sell a car without a title?',
+			text: '	Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, nobis. Deleniti illo accusamus facilis unde facere debitis. Blanditiis rerum quas saepe hic beatae nihil eaque aliquid placeat. Rem, odio optio.',
+		},
+		{
+			title: 'How to sell a car with Bid4Wheels?',
+			text: '	Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, nobis. Deleniti illo accusamus facilis unde facere debitis. Blanditiis rerum quas saepe hic beatae nihil eaque aliquid placeat. Rem, odio optio.',
+		},
+		{
+			title: 'When do I get paid after I sell my car?',
+			text: '	Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, nobis. Deleniti illo accusamus facilis unde facere debitis. Blanditiis rerum quas saepe hic beatae nihil eaque aliquid placeat. Rem, odio optio.',
 		},
 	];
 	return (
@@ -209,7 +237,7 @@ const Home = () => {
 				<h2 className="text-primary  w-fit after:content-[''] after:border-2 after:w-1/3 after:border-primary flex flex-col text-4xl font-semibold">
 					FAQs
 				</h2>
-				<div className="flex flex-row">
+				<div className="flex flex-row py-8 gap-x-10">
 					<div className="flex-1 px-8 py-8 shadow-2xl border border-slate-100">
 						<div className="p-4 border border-slate-100 shadow-lg">
 							<h1 className="text-2xl font-bold text-primary py-4">
@@ -224,57 +252,38 @@ const Home = () => {
 							</p>
 						</div>
 						<div>
-							<ul className="flex flex-col gap-y-8 py-8 text-xl font-semibold text-primary">
-								<li className="flex flex-row justify-between text-xl">
-									<div>
-										Can you sell a car without a title?
-									</div>
-									<div className="px-5 text-3xl">
-										<BiPlusMedical />
-									</div>
-								</li>
-								<li className="flex flex-row justify-between text-xl">
-									<div>What are my payment options?</div>
-									<div className="px-5 text-3xl">
-										<BiPlusMedical />
-									</div>
-								</li>
-								<li className="flex flex-row justify-between text-xl">
-									<div>Will I always receive my offer?</div>
-									<div className="px-5 text-3xl">
-										<BiPlusMedical />
-									</div>
-								</li>
-								<li className="flex flex-row justify-between text-xl">
-									<div>
-										Can one sell a car without a title?
-									</div>
-									<div className="px-5 text-3xl">
-										<BiPlusMedical />
-									</div>
-								</li>
-								<li className="flex flex-row justify-between text-xl">
-									<div>
-										How to sell a car with Bid4Wheels?
-									</div>
-									<div className="px-5 text-3xl">
-										<BiPlusMedical />
-									</div>
-								</li>
-								<li className="flex flex-row justify-between text-xl">
-									<div>
-										When do I get paid after I sell my car?
-									</div>
-									<div className="px-5 text-3xl">
-										<BiPlusMedical />
-									</div>
-								</li>
-							</ul>
+							<div className="flex flex-col gap-y-8 py-8 text-xl font-semibold text-primary">
+								{faqs.map((faq) => (
+									<Faq title={faq.title} text={faq.text} />
+								))}
+							</div>
 						</div>
 					</div>
-					<div className="flex-1 px-8">
-						<div className="py-8 shadow-2xl border border-slate-100">
-
+					<div className="flex-1 px-8 place-self-end">
+						<div>
+							<h1 className="text-4xl text-primary font-bold my-8">
+								Signup for News Letters
+							</h1>
+							<div className="p-16 max-w-lg shadow-2xl border border-slate-100 bg-slate-50">
+								<div>
+									<div className="p-16 bg-white shadow-inner flex justify-center items-center">
+										<MdEmail className="text-7xl text-primary" />
+									</div>
+								</div>
+								<p className="text-center text-primary my-8">
+									Get updates on latest and great car deals
+								</p>
+								<div className="flex flex-col gap-y-8">
+									<input
+										type="text"
+										className="input-field w-full border-primary-light border-2 shadow shadow-primary-light"
+										placeholder="Enter your email"
+									/>
+									<button className="button w-full text-white bg-primary hover:bg-primary-hover">
+										Subscribe
+									</button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -283,4 +292,23 @@ const Home = () => {
 	);
 };
 
+const Faq = (props: { title: string; text: string }) => {
+	const [show, setShow] = useState(false);
+	return (
+		<div className='relative'>
+			<div
+				className="flex flex-row justify-between text-xl cursor-pointer"
+				onClick={() => {
+					setShow((state) => !state);
+				}}
+			>
+				<div>{props.title}</div>
+				<div className="px-5 text-3xl">
+					<BiPlusMedical />
+				</div>
+			</div>
+			{show && <p className='absolute text-sm font-normal py-8 px-4 bg-slate-100 my-2 text-slate-500 z-30 rounded-sm'>{props.text}</p>}
+		</div>
+	);
+};
 export default Home;
