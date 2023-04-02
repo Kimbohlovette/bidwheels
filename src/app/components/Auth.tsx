@@ -5,7 +5,7 @@ import SignUp from './SignUp';
 const Auth = () => {
 	const [isLogin, setAuthType] = useState<boolean>(true);
 	return (
-		<div className="fixed flex justify-center w-screen min-h-screen bg-white">
+		<div className="fixed hidden justify-center w-screen min-h-screen bg-white">
 			<div className="p-8 bg-white py-5 border mt-16 w-2/3">
 				<div className="py-5 border-b">
 					<ul className="flex flex-row justify-evenly divide-x text-center">
