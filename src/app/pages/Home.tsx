@@ -4,6 +4,7 @@ import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import Car from "../components/Car";
 
 const whoweare = require("../assets/whoweare.png");
+const bgImage = require('../assets/hero-bg-image1.jpg');
 
 const Home = () => {
 	const cars = [
@@ -34,7 +35,33 @@ const Home = () => {
 	];
 	return (
 		<div className="min-h-screen">
-			<section></section>
+			<section
+				className="hero h-[70vh] flex items-center object-center object-cover"
+				style={{ backgroundImage: `url(${bgImage})`, objectPosition: 'center', objectFit: 'cover', height: '100%' }}
+			>
+				<div className="w-full flex flex-col items-center sm:flex-row">
+					<div className="caption flex-1">
+						<h1 className="text-5xl font-bold">
+							Welcome Iknite Space
+						</h1>
+					</div>
+					<div className="action-card flex-1 py-16 px-8 text-white bg-primary/60">
+						<p>
+							Shop the latest iPhone models and accessroies, Save
+							with Apple Trade-In, carrier offers, and flexible
+							monthly payment options. Get expert help today.
+						</p>
+						<p>
+							Shop the latest iPhone models and accessroies, Save
+							with Apple Trade-In, carrier offers, and flexible
+							monthly payment options. Get expert help today.
+						</p>
+						<button className="button w-48 text-primary bg-white border mt-8">
+							BUY
+						</button>
+					</div>
+				</div>
+			</section>
 			<section className="flex flex-row px-8 py-8">
 				<div className="flex-1">
 					<h2 className="text-primary  w-fit after:content-[''] after:border-2 after:w-1/3 after:border-primary flex flex-col text-xl font-semibold">

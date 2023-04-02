@@ -1,9 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs'
-
+const logo = require('../assets/logo-white.png');
 const Navbar = () => {
-	const logo = require('../assets/logo-white.png');
 	return (
 		<div className="bg-primary flex flex-row justify-between items-center py-8 px-8 font-semibold text-lg text-white">
 			<NavLink to="/">
