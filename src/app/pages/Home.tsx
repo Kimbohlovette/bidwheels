@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import { BsStarFill, BsStarHalf } from 'react-icons/bs';
+import { BiPlusMedical } from 'react-icons/bi';
 import Car from '../components/Car';
 
 const Home = () => {
@@ -204,7 +205,80 @@ const Home = () => {
 					})}
 				</div>
 			</section>
-			<section></section>
+			<section className="py-16 px-8 min-h-screen">
+				<h2 className="text-primary  w-fit after:content-[''] after:border-2 after:w-1/3 after:border-primary flex flex-col text-4xl font-semibold">
+					FAQs
+				</h2>
+				<div className="flex flex-row">
+					<div className="flex-1 px-8 py-8 shadow-2xl border border-slate-100">
+						<div className="p-4 border border-slate-100 shadow-lg">
+							<h1 className="text-2xl font-bold text-primary py-4">
+								How does the offer process work
+							</h1>
+							<p className="text-primary-light">
+								Lorem ipsum dolor sit amet consectetur
+								adipisicing elit. Minus quibusdam consectetur
+								praesentium placeat dolores, numquam dignissimos
+								necessitatibus hic sint libero illo animi iste
+								aut fuga! Id placeat quos odio. Porro?
+							</p>
+						</div>
+						<div>
+							<ul className="flex flex-col gap-y-8 py-8 text-xl font-semibold text-primary">
+								<li className="flex flex-row justify-between text-xl">
+									<div>
+										Can you sell a car without a title?
+									</div>
+									<div className="px-5 text-3xl">
+										<BiPlusMedical />
+									</div>
+								</li>
+								<li className="flex flex-row justify-between text-xl">
+									<div>What are my payment options?</div>
+									<div className="px-5 text-3xl">
+										<BiPlusMedical />
+									</div>
+								</li>
+								<li className="flex flex-row justify-between text-xl">
+									<div>Will I always receive my offer?</div>
+									<div className="px-5 text-3xl">
+										<BiPlusMedical />
+									</div>
+								</li>
+								<li className="flex flex-row justify-between text-xl">
+									<div>
+										Can one sell a car without a title?
+									</div>
+									<div className="px-5 text-3xl">
+										<BiPlusMedical />
+									</div>
+								</li>
+								<li className="flex flex-row justify-between text-xl">
+									<div>
+										How to sell a car with Bid4Wheels?
+									</div>
+									<div className="px-5 text-3xl">
+										<BiPlusMedical />
+									</div>
+								</li>
+								<li className="flex flex-row justify-between text-xl">
+									<div>
+										When do I get paid after I sell my car?
+									</div>
+									<div className="px-5 text-3xl">
+										<BiPlusMedical />
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div className="flex-1 px-8">
+						<div className="py-8 shadow-2xl border border-slate-100">
+
+						</div>
+					</div>
+				</div>
+			</section>
 		</div>
 	);
 };
