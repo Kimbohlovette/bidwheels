@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
+import { BiPlusMedical } from 'react-icons/bi'
 import Car from "../components/Car";
+import { MdEmail } from 'react-icons/md';
 import axios from "axios";
 import { base_url } from "../App";
 
 const whoweare = require("../assets/whoweare.png");
 const bgImage = require('../assets/hero-bg-image1.jpg');
-
 
 
 const Home = () => {
@@ -74,8 +75,6 @@ const Home = () => {
 	// ];
 	let cars = []
 
-	console.log('products: ', products)
-
 	cars = products.map((p) => {
 		const carObj = {
 			name: p.name,
@@ -86,33 +85,54 @@ const Home = () => {
 		return carObj
 	})
 
-	console.log('cars after filter: ', cars)
 
-
+	const faqs: { title: string; text: string }[] = [
+		{
+			title: 'Can you sell a car without a title?',
+			text: '	Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, nobis. Deleniti illo accusamus facilis unde facere debitis. Blanditiis rerum quas saepe hic beatae nihil eaque aliquid placeat. Rem, odio optio.',
+		},
+		{
+			title: 'What are my payment options?',
+			text: '	Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, nobis. Deleniti illo accusamus facilis unde facere debitis. Blanditiis rerum quas saepe hic beatae nihil eaque aliquid placeat. Rem, odio optio.',
+		},
+		{
+			title: 'Will I always receive an offer?',
+			text: '	Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, nobis. Deleniti illo accusamus facilis unde facere debitis. Blanditiis rerum quas saepe hic beatae nihil eaque aliquid placeat. Rem, odio optio.',
+		},
+		{
+			title: 'Can you sell a car without a title?',
+			text: '	Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, nobis. Deleniti illo accusamus facilis unde facere debitis. Blanditiis rerum quas saepe hic beatae nihil eaque aliquid placeat. Rem, odio optio.',
+		},
+		{
+			title: 'How to sell a car with Bid4Wheels?',
+			text: '	Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, nobis. Deleniti illo accusamus facilis unde facere debitis. Blanditiis rerum quas saepe hic beatae nihil eaque aliquid placeat. Rem, odio optio.',
+		},
+		{
+			title: 'When do I get paid after I sell my car?',
+			text: '	Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, nobis. Deleniti illo accusamus facilis unde facere debitis. Blanditiis rerum quas saepe hic beatae nihil eaque aliquid placeat. Rem, odio optio.',
+		},
+	];
 	return (
-		<div className="min-h-screen">
-			<section
-				className="hero h-[70vh] flex items-center object-center object-cover"
-				style={{ backgroundImage: `url(${bgImage})`, objectPosition: 'center', objectFit: 'cover', height: '100%' }}
-			>
-				<div className="w-full flex flex-col items-center sm:flex-row">
-					<div className="caption flex-1">
-						<h1 className="text-5xl font-bold">
-							Welcome Iknite Space
+		<div className="min-h-screen w-full">
+			<section className="relative h-[80vh] flex items-center">
+				<img
+					src={bgImage}
+					alt=""
+					className="top-0 left-0 w-full h-full -z-10 object-[(50%,_80%)] aspect-video"
+				/>
+				<div className="w-full p-8 flex flex-col items-center sm:flex-row absolute top-0 left-0 h-full bg-primary/40">
+					<div className="caption flex-1 max-w-1/2">
+						<h1 className="text-5xl font-bold text-slate-50 w-1/2 mx-auto">
+							Buy your dream car at your own budget.
 						</h1>
 					</div>
-					<div className="action-card flex-1 py-16 px-8 text-white bg-primary/60">
-						<p>
+					<div className="action-card flex-1 py-16 px-8 bg-primary/80 max-w-lg">
+						<p className="text-slate-100 text-sm">
 							Shop the latest iPhone models and accessroies, Save
 							with Apple Trade-In, carrier offers, and flexible
 							monthly payment options. Get expert help today.
 						</p>
-						<p>
-							Shop the latest iPhone models and accessroies, Save
-							with Apple Trade-In, carrier offers, and flexible
-							monthly payment options. Get expert help today.
-						</p>
-						<button className="button w-48 text-primary bg-white border mt-8">
+						<button className="button w-48 text-primary bg-white border mt-8 font-semibold text-lg">
 							BUY
 						</button>
 					</div>
@@ -141,29 +161,40 @@ const Home = () => {
 					</h2>
 					<div className="py-4 pr-4">
 						<p className="text-primary">
-							We are involved in the selling of cars. We partner with
-							individuals who import cars for sale, put these cars up for
-							bidding, and sell them to the highest bidder. We ensure customers'
-							satisfication by promoting only high quality goods, and by making
-							sure our partners are legit and reliable. We help shopers find
-							great car deals and connect with top rated dealers. Bid 4 Wheels
-							offers a pre-owned inventory that ranges from economic cars to
-							luxury vehicles at affordable price with updates on the latest
-							cars available. We strive to find you the vehicle you've been
-							looking for, and make the process easy for you. We help our
-							partners make quick sales with little effort by puttin up their
-							products for automatic bidding, hence saving them the stress
+							We are involved in the selling of cars. We partner
+							with individuals who import cars for sale, put these
+							cars up for bidding, and sell them to the highest
+							bidder. We ensure customers' satisfication by
+							promoting only high quality goods, and by making
+							sure our partners are legit and reliable. We help
+							shopers find great car deals and connect with top
+							rated dealers. Bid 4 Wheels offers a pre-owned
+							inventory that ranges from economic cars to luxury
+							vehicles at affordable price with updates on the
+							latest cars available. We strive to find you the
+							vehicle you've been looking for, and make the
+							process easy for you. We help our partners make
+							quick sales with little effort by puttin up their
+							products for automatic bidding, hence saving them
+							the stress
 						</p>
 					</div>
 				</div>
 			</section>
 			<section className="flex flex-row px-8 py-8 justify-between items-start">
 				<div className="flex-1">
-					<h2 className="text-primary font-semibold text-2xl pb-6">Rating</h2>
+					<h2 className="text-primary font-semibold text-2xl pb-6">
+						Rating
+					</h2>
 					<div className="flex flex-row items-center justify-between w-[60%] pb-3">
-						{Array.from({ length: 4 }, (item, index) => index).map((_, i) => (
-							<BsStarFill className="text-yellow-500 text-3xl" key={i} />
-						))}
+						{Array.from({ length: 4 }, (item, index) => index).map(
+							(_, i) => (
+								<BsStarFill
+									className="text-yellow-500 text-3xl"
+									key={i}
+								/>
+							)
+						)}
 						<BsStarHalf className="text-yellow-500 text-3xl" />
 					</div>
 					<h4 className="text-primary font-semibold text-sm">
@@ -182,7 +213,9 @@ const Home = () => {
 						</div>
 					</div>
 					<div className="mb-8">
-						<h2 className="text-primary font-semibold text-2xl mb-4">Value</h2>
+						<h2 className="text-primary font-semibold text-2xl mb-4">
+							Value
+						</h2>
 						<div className="flex flex-row w-[50%]">
 							{Array.from({ length: 5 }, (item, index) => index).map((_, i) => (
 								<div className="flex-1 mr-[1px] bg-primary h-3" key={i} />
@@ -236,16 +269,87 @@ const Home = () => {
 					</div>
 				</div>
 				<div className="flex flex-row flex-wrap justify-center gap-16 [&>*]:flex-1">
-					{
-						cars.map((car, index) => {
-							return <Car car={car} key={index} />
-						})
-					}
+					{cars.map((car) => {
+						return <Car car={car} />;
+					})}
 				</div>
 			</section>
-			<section></section>
+			<section className="py-16 px-8 min-h-screen">
+				<h2 className="text-primary  w-fit after:content-[''] after:border-2 after:w-1/3 after:border-primary flex flex-col text-4xl font-semibold">
+					FAQs
+				</h2>
+				<div className="flex flex-row py-8 gap-x-10">
+					<div className="flex-1 px-8 py-8 shadow-2xl border border-slate-100">
+						<div className="p-4 border border-slate-100 shadow-lg">
+							<h1 className="text-2xl font-bold text-primary py-4">
+								How does the offer process work
+							</h1>
+							<p className="text-primary-light">
+								Lorem ipsum dolor sit amet consectetur
+								adipisicing elit. Minus quibusdam consectetur
+								praesentium placeat dolores, numquam dignissimos
+								necessitatibus hic sint libero illo animi iste
+								aut fuga! Id placeat quos odio. Porro?
+							</p>
+						</div>
+						<div>
+							<div className="flex flex-col gap-y-8 py-8 text-xl font-semibold text-primary">
+								{faqs.map((faq) => (
+									<Faq title={faq.title} text={faq.text} />
+								))}
+							</div>
+						</div>
+					</div>
+					<div className="flex-1 px-8 place-self-end">
+						<div>
+							<h1 className="text-4xl text-primary font-bold my-8">
+								Signup for News Letters
+							</h1>
+							<div className="p-16 max-w-lg shadow-2xl border border-slate-100 bg-slate-50">
+								<div>
+									<div className="p-16 bg-white shadow-inner flex justify-center items-center">
+										<MdEmail className="text-7xl text-primary" />
+									</div>
+								</div>
+								<p className="text-center text-primary my-8">
+									Get updates on latest and great car deals
+								</p>
+								<div className="flex flex-col gap-y-8">
+									<input
+										type="text"
+										className="input-field w-full border-primary-light border-2 shadow shadow-primary-light"
+										placeholder="Enter your email"
+									/>
+									<button className="button w-full text-white bg-primary hover:bg-primary-hover">
+										Subscribe
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 		</div>
 	);
 };
 
+const Faq = (props: { title: string; text: string }) => {
+	const [show, setShow] = useState(false);
+	return (
+		<div className='relative'>
+			<div
+				className="flex flex-row justify-between text-xl cursor-pointer"
+				onClick={() => {
+					setShow((state) => !state);
+				}}
+			>
+				<div>{props.title}</div>
+				<div className="px-5 text-3xl">
+					<BiPlusMedical />
+				</div>
+			</div>
+			{show && <p className='absolute text-sm font-normal py-8 px-4 bg-slate-100 my-2 text-slate-500 z-30 rounded-sm'>{props.text}</p>}
+		</div>
+	);
+};
 export default Home;

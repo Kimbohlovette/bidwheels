@@ -8,7 +8,7 @@ const Car = ({ car }: any) => {
             <h1 className="text-white my-5 text-xl font-bold">{car.name}</h1>
             <p className="text-slate-200 text-sm my-5 h-12">{car.description}</p>
             <NavLink to="/shop">
-                <button className="button text-primary bg-white font-semibold w-2/3 mt-5">Shop Now</button>
+                <button className="button text-primary bg-white font-semibold w-2/3 mt-5 hover:bg-primary-hover hover:text-white">Shop Now</button>
             </NavLink>
         </div>
     )
