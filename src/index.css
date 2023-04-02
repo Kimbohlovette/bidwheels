@@ -4,9 +4,9 @@
 
 @layer components {
     .input-field {
-      @apply outline-none py-4 px-4 rounded-sm border flex-1 min-w-0;
+      @apply outline-none py-4 px-2 rounded-sm border flex-1 min-w-0;
     }
     .button {
-      @apply py-4 px-4 outline-none rounded-sm;
+      @apply py-2 px-4 outline-none rounded-sm;
     }
 }

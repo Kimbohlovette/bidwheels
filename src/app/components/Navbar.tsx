@@ -2,15 +2,15 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
-	const logo = require('../assets/logo.png');
+	const logo = require('../assets/logo-white.png');
 	return (
-		<div className="bg-primary flex flex-row justify-between items-center py-8 px-4 font-semibold text-lg text-white">
+		<div className="bg-primary flex flex-row justify-between items-center py-8 px-8 font-semibold text-lg text-white">
 			<NavLink to="/">
 				<div className="cursor-pointer">
 					<img
 						src={logo}
 						alt=""
-						className="bg-white h-12 w-auto"
+						className="h-12 w-auto"
 					/>
 				</div>
 			</NavLink>
@@ -19,7 +19,7 @@ const Navbar = () => {
 					<NavLink to="/">
 						<li className="cursor-pointer">Home</li>
 					</NavLink>
-					<NavLink to="/cars">
+					<NavLink to="/shop">
 						<li className="cursor-pointer">Buy</li>
 					</NavLink>
 					<NavLink to="/sell">
