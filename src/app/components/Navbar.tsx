@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { BsSearch } from 'react-icons/bs'
 
 const Navbar = () => {
 	const logo = require('../assets/logo-white.png');
@@ -14,7 +15,15 @@ const Navbar = () => {
 					/>
 				</div>
 			</NavLink>
-			<nav className="">
+			<div className="search">
+				<div className="search-container flex flex-row gap-4">
+					<input type="search" className="input-field border-primary" />
+					<button className="button bg-white text-primary px-5 hover:bg-primary-light">
+					 	<BsSearch />
+					</button>
+				</div>
+			</div>
+			<nav className="font-medium text-white">
 				<ul className="flex flex-row gap-8">
 					<NavLink to="/">
 						<li className="cursor-pointer">Home</li>
@@ -36,7 +45,9 @@ const Navbar = () => {
 					</NavLink>
 				</ul>
 			</nav>
-			<div>Login</div>
+			<div className="text-white text-sm font-semibold px-4">
+				Sign In
+			</div>
 		</div>
 	);
 };
