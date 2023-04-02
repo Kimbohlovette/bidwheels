@@ -9,4 +9,8 @@
     .button {
       @apply py-2 outline-none rounded-sm;
     }
+
+    .nav-border-style {
+      @apply border-b-2 border-transparent hover:border-slate-50 transition-transform duration-200 ease-linear;
+    }
 }
