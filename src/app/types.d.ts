@@ -8,5 +8,7 @@ export interface ProductType {
     bidDuration: number,
     carModel: string,
     fuelType: string,
-    engineType: string
+    engineType: string,
+    status: string,
+    owner: string,
 }
