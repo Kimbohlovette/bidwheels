@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs'
 import { FaUser } from 'react-icons/fa';
 import { AiFillCaretDown } from 'react-icons/ai';
@@ -73,11 +73,14 @@ const Navbar = () => {
 };
 
 const Avatar = (props: { username: string }) => {
+	const navigate = useNavigate()
 	const [visible, setVisible] = useState(false);
 	const logout = () => {
 		localStorage.removeItem('@user');
 		localStorage.removeItem('@token');
+		navigate('/')
 		window.location.reload()
+
 	}
 	return (
 		<>
@@ -92,7 +95,7 @@ const Avatar = (props: { username: string }) => {
 			{visible && <div className='border rounded-sm absolute z-50 right-3 bg-white text-slate-700'>
 				<ul className="px-4 py-5 divide-y gap-y-2 [&>*]:p-2 [&>*:hover]:bg-slate-200">
 					<li>My Profile</li>
-					<li>My Bids</li>
+					<li><Link to='/my-bids'>My Bids</Link></li>
 					<li onClick={logout}>Logout</li>
 				</ul>
 			</div>}
