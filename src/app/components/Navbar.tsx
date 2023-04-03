@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs'
+import { FaUser } from 'react-icons/fa';
+import { AiFillCaretDown } from 'react-icons/ai';
 import Auth from './Auth';
 const logo = require('../assets/logo-white.png');
 const Navbar = () => {
@@ -53,18 +55,53 @@ const Navbar = () => {
 				</ul>
 			</nav>
 			{
-				user ? <p className="text-white hover:cursor-pointer">{user.username}</p> : <div className="text-white hover:cursor-pointer font-semibold px-4" onClick={() => setAuth(true)}>
+				user ? <p className="text-white hover:cursor-pointer"><Avatar username={user.username} /></p> : <div className="text-white hover:cursor-pointer font-semibold px-4" onClick={() => setAuth(true)}>
 					Sign In
 				</div>
 			}
 
 			{
-				auth && <div className="fixed top-0 bg-primary/70 backdrop-blur-sm min-h-screen left-0 w-full z-50">
-					<Auth setAuth={setAuth} />
-				</div>
+				auth && (<>
+					<div className="fixed top-0 bg-primary/70 backdrop-blur-sm min-h-screen left-0 w-full z-50">
+						<Auth setAuth={setAuth} />
+					</div>
+				</>
+				)
 			}
 		</div >
 	);
 };
+
+const Avatar = (props: { username: string }) => {
+	const navigate = useNavigate()
+	const [visible, setVisible] = useState(false);
+	const logout = () => {
+		localStorage.removeItem('@user');
+		localStorage.removeItem('@token');
+		navigate('/')
+		window.location.reload()
+
+	}
+	return (
+		<>
+			<div className='flex items-center flex-col'>
+				<div className="rounded-full shadow-inner border h-10 w-10 overflow-hidden flex justify-center items-center">
+					{/* <img src={props.thumbNail} alt="" className='w-full h-auto object-cover object-center aspect-square' /> */}
+					<FaUser className="text-white" />
+				</div>
+				<div className='text-xs'>{props.username}</div>
+				<AiFillCaretDown className='text-center' onClick={() => setVisible(!visible)} />
+			</div>
+			{visible && <div className='border rounded-sm absolute z-50 right-3 bg-white text-slate-700'>
+				<ul className="px-4 py-5 divide-y gap-y-2 [&>*]:p-2 [&>*:hover]:bg-slate-200">
+					<li>My Profile</li>
+					<li><Link to='/my-bids'>My Bids</Link></li>
+					<li onClick={logout}>Logout</li>
+				</ul>
+			</div>}
+		</>
+
+	)
+}
 
 export default Navbar;

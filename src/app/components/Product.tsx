@@ -5,6 +5,15 @@ import { MdLocationOn } from 'react-icons/md';
 import { IoSpeedometerSharp } from 'react-icons/io5';
 import { ProductType } from '../types';
 
+export const BidButton = () => {
+	return (
+		<button className="text-white bg-primary button shadow-lg px-5 font-semibold text-sm">
+			<MdOutlineGavel className="inline mr-1" />
+			Bid
+		</button>
+	)
+}
+
 const Product = (props: { product: ProductType }) => {
 	const image = require('../assets/' + props.product.coverImage);
 	return (
@@ -42,10 +51,7 @@ const Product = (props: { product: ProductType }) => {
 					<div className="text-primary font-extralight">
 						Limbe, Mile 4<MdLocationOn className="inline mx-1" />
 					</div>
-					<button className="text-white bg-primary button shadow-lg px-5 font-semibold text-sm">
-						<MdOutlineGavel className="inline mr-1" />
-						Bid
-					</button>
+					<BidButton />
 				</div>
 			</div>
 		</div>

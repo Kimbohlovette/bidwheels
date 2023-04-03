@@ -19,17 +19,17 @@ const Shop = () => {
 			);
 		};
 		const loadProduct = async () => {
-			const productsString = localStorage.getItem("@products");
-			if (productsString) {
-				const localProducts = JSON.parse(productsString);
-				if (localProducts.length > 0) {
-					setProducts(localProducts);
-				} else {
-					getProducts();
-				}
-			} else {
-				getProducts();
-			}
+			// const productsString = localStorage.getItem("@products");
+			// if (productsString) {
+			// 	const localProducts = JSON.parse(productsString);
+			// 	if (localProducts.length > 0) {
+			// 		setProducts(localProducts);
+			// 	} else {
+			// 		getProducts();
+			// 	}
+			// } else {
+			getProducts();
+			// }
 		};
 		loadProduct();
 	}, []);
@@ -101,8 +101,8 @@ const Shop = () => {
 							</div>{" "}
 						</div>
 						<div className="grid grid-cols-2 md:grid-cols-3 gap-8 px-8">
-							{products.map((product) => (
-								<Link to={`/product/${product._id}`} state={product}>
+							{products.map((product, i) => (
+								<Link to={`/product/${product._id}`} state={product} key={i}>
 									<Product product={product} />
 								</Link>
 							))}

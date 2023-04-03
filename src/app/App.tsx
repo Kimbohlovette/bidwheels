@@ -3,9 +3,9 @@ import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import AddCarForm from './pages/AddCarForm';
 import Shop from './pages/Shop';
 import ProductDetails from './pages/ProductDetails';
+import MyBids from './pages/MyBids';
 
 export const base_url = 'https://api-bid4wheels.onrender.com/api/v1'
 
@@ -31,8 +31,8 @@ const routes = createBrowserRouter([
 				element: <Shop />,
 			},
 			{
-				path: '/sell',
-				element: <AddCarForm />,
+				path: '/my-bids',
+				element: <MyBids />,
 			},
 			{
 				path: '/product/:id',

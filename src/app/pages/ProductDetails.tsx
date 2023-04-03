@@ -42,21 +42,21 @@ const ProductDetails = () => {
 
   return (
     <div className="p-8 mx-auto py-5 border pt-10 flex flex-col relative min-h-max justify-center">
-      <p className="text-3xl text-primary text-center font-bold mb-5">
+      <p className="text-3xl text-primary font-bold mb-5">
         {product.name}
       </p>
       <div className="w-full items-center">
         <img
           src={require("../assets/" + product.coverImage)}
           alt="car"
-          className="object-cover object-center aspect-video w-full"
+          className="object-cover object-center aspect-video w-full hover:cursor-pointer"
         />
       </div>
       {/* featured images */}
-      <div className="flex mt-8 gap-y-8 gap-x-8">
+      <div className="flex mt-8 gap-y-8 gap-x-4">
         {
-          product.images.map((image: any) => <div className="flex flex-1">
-            <img src={require("../assets/" + image)} alt="cover" />
+          product.images.map((image: any) => <div className="flex mx-auto">
+            <img src={require("../assets/" + image)} alt="cover" className="h-[200px] w-auto hover:cursor-pointer" />
           </div>)
         }
       </div>
@@ -67,16 +67,16 @@ const ProductDetails = () => {
             className="flex flex-row items-center justify-between w-full mb-4"
             id="label"
           >
-            <p className="text-primary text-4xl font-semibold">Fuel Economy</p>
+            <p className="text-primary text-xl font-semibold">Fuel Economy</p>
             <div>
               {viewing === "fuel" ? (
                 <MdOutlineKeyboardArrowUp
-                  className="text-primary text-4xl font-semibold hover:cursor-pointer"
+                  className="text-primary text-xl font-semibold hover:cursor-pointer"
                   onClick={() => setViewing("")}
                 />
               ) : (
                 <MdOutlineKeyboardArrowDown
-                  className="text-primary text-4xl font-semibold hover:cursor-pointer"
+                  className="text-primary text-xl font-semibold hover:cursor-pointer"
                   onClick={() => setViewing("fuel")}
                 />
               )}
@@ -90,35 +90,35 @@ const ProductDetails = () => {
                 id="details-item"
               >
                 <p className="text-primary text-xl">Fuel type</p>
-                <p className="text-primary text-2xl font-semibold">{product.fuelType.toString().toUpperCase()}</p>
+                <p className="text-primary font-semibold">{product.fuelType.toString().toUpperCase()}</p>
               </div>
               <div
                 className="flex flex-row items-center justify-between w-full mb-2"
                 id="details-item"
               >
                 <p className="text-primary text-xl">Combined gas milage</p>
-                <p className="text-primary text-2xl font-semibold">48 KMH</p>
+                <p className="text-primary font-semibold">48 KMH</p>
               </div>
               <div
                 className="flex flex-row items-center justify-between w-full mb-2"
                 id="details-item"
               >
                 <p className="text-primary text-xl">City gas milage</p>
-                <p className="text-primary text-2xl font-semibold">47 KMH</p>
+                <p className="text-primary font-semibold">47 KMH</p>
               </div>
               <div
                 className="flex flex-row items-center justify-between w-full mb-2"
                 id="details-item"
               >
                 <p className="text-primary text-xl">High way gas milage</p>
-                <p className="text-primary text-2xl font-semibold">53 KMH</p>
+                <p className="text-primary font-semibold">53 KMH</p>
               </div>
               <div
                 className="flex flex-row items-center justify-between w-full mb-2"
                 id="details-item"
               >
                 <p className="text-primary text-xl">Fuel tank size</p>
-                <p className="text-primary text-2xl font-semibold">50 L</p>
+                <p className="text-primary  font-semibold">50 L</p>
               </div>
               <hr className="w-full bg-primary border-0 h-[1px]" />
             </div>
@@ -130,16 +130,16 @@ const ProductDetails = () => {
             className="flex flex-row items-center justify-between w-full mb-4"
             id="label"
           >
-            <p className="text-primary text-4xl font-semibold">Performance</p>
+            <p className="text-primary text-xl font-semibold">Performance</p>
             <div>
               {viewing === "performance" ? (
                 <MdOutlineKeyboardArrowUp
-                  className="text-primary text-4xl font-semibold hover:cursor-pointer"
+                  className="text-primary text-xl font-semibold hover:cursor-pointer"
                   onClick={() => setViewing("")}
                 />
               ) : (
                 <MdOutlineKeyboardArrowDown
-                  className="text-primary text-4xl font-semibold hover:cursor-pointer"
+                  className="text-primary text-xl font-semibold hover:cursor-pointer"
                   onClick={() => setViewing("performance")}
                 />
               )}
@@ -153,7 +153,7 @@ const ProductDetails = () => {
                 id="details-item"
               >
                 <p className="text-primary text-xl">Engine type</p>
-                <p className="text-primary text-2xl font-semibold">Automatic</p>
+                <p className="text-primary font-semibold">Automatic</p>
               </div>
               <hr className="w-full bg-primary border-0 h-[1px]" />
             </div>
@@ -164,16 +164,16 @@ const ProductDetails = () => {
             className="flex flex-row items-center justify-between w-full mb-4"
             id="label"
           >
-            <p className="text-primary text-4xl font-semibold">Measurement</p>
+            <p className="text-primary text-xl font-semibold">Measurement</p>
             <div>
               {viewing === "measurements" ? (
                 <MdOutlineKeyboardArrowUp
-                  className="text-primary text-4xl font-semibold hover:cursor-pointer"
+                  className="text-primary text-xl font-semibold hover:cursor-pointer"
                   onClick={() => setViewing("")}
                 />
               ) : (
                 <MdOutlineKeyboardArrowDown
-                  className="text-primary text-4xl font-semibold hover:cursor-pointer"
+                  className="text-primary text-xl font-semibold hover:cursor-pointer"
                   onClick={() => setViewing("")}
                 />
               )}
@@ -186,16 +186,16 @@ const ProductDetails = () => {
             className="flex flex-row items-center justify-between w-full mb-4"
             id="label"
           >
-            <p className="text-primary text-4xl font-semibold">Overview</p>
+            <p className="text-primary text-xl font-semibold">Overview</p>
             <div>
               {viewing === "overview" ? (
                 <MdOutlineKeyboardArrowUp
-                  className="text-primary text-4xl font-semibold hover:cursor-pointer"
+                  className="text-primary text-xl font-semibold hover:cursor-pointer"
                   onClick={() => setViewing("")}
                 />
               ) : (
                 <MdOutlineKeyboardArrowDown
-                  className="text-primary text-4xl font-semibold hover:cursor-pointer"
+                  className="text-primary text-xl font-semibold hover:cursor-pointer"
                   onClick={() => setViewing("")}
                 />
               )}
@@ -206,13 +206,13 @@ const ProductDetails = () => {
       </div>
       {/* features */}
       <div className="mb-8">
-        <p className="text-primary text-4xl font-semibold">Features</p>
+        <p className="text-primary text-xl font-semibold">Features</p>
         <div className="grid grid-cols-2 gap-y-4 mt-6 px-8">
           {features.map((item, i) => (
             <div className="flex flex-row items-center gap-x-2">
               <div className="bg-primary w-5 h-5 top-0" key={i} />
               <div className="pt-2">
-                <p className="text-primary font-semibold text-2xl">
+                <p className="text-primary font-semibold">
                   {item.title}
                 </p>
                 <p className="text-primary font-light">{item.value}</p>
@@ -223,7 +223,7 @@ const ProductDetails = () => {
       </div>
       {/* description */}
       <div className="mb-8 px-8">
-        <p className="text-primary text-4xl font-semibold">
+        <p className="text-primary text-xl font-semibold">
           Dealer's description
         </p>
         <div className="grid grid-cols-2 gap-y-4 mt-4">
@@ -231,7 +231,7 @@ const ProductDetails = () => {
         </div>
       </div>
       <div className="flex absolute bottom-10 right-10">
-        <button className="bg-primary text-white font-bold text-3xl py-4 px-12 rounded-sm hover:bg-primary-hover">
+        <button className="bg-primary text-white font-bold text-lg py-3 px-8 rounded-sm hover:bg-primary-hover">
           <div className="flex flex-row items-center justify-center gap-x-2">
             <MdOutlineGavel />
             <p>BID</p>
