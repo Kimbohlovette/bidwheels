@@ -19,17 +19,17 @@ const Shop = () => {
 			);
 		};
 		const loadProduct = async () => {
-			const productsString = localStorage.getItem("@products");
-			if (productsString) {
-				const localProducts = JSON.parse(productsString);
-				if (localProducts.length > 0) {
-					setProducts(localProducts);
-				} else {
-					getProducts();
-				}
-			} else {
-				getProducts();
-			}
+			// const productsString = localStorage.getItem("@products");
+			// if (productsString) {
+			// 	const localProducts = JSON.parse(productsString);
+			// 	if (localProducts.length > 0) {
+			// 		setProducts(localProducts);
+			// 	} else {
+			// 		getProducts();
+			// 	}
+			// } else {
+			getProducts();
+			// }
 		};
 		loadProduct();
 	}, []);

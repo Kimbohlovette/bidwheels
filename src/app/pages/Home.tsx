@@ -8,6 +8,7 @@ import axios from "axios";
 import { base_url } from "../App";
 import { Link } from "react-router-dom";
 import { ProductType } from "../types";
+import CountdownTimer from "../components/CountdownTimer";
 
 const whoweare = require("../assets/whoweare.png");
 const bgImage = require('../assets/hero-bg-image1.jpg');
@@ -23,17 +24,17 @@ const Home = () => {
 			localStorage.setItem('@products', JSON.stringify(productsFound.data.data))
 		}
 		const loadProduct = async () => {
-			const productsString = localStorage.getItem('@products')
-			if (productsString) {
-				const localProducts = JSON.parse(productsString)
-				if (localProducts.length > 0) {
-					setProducts(localProducts)
-				} else {
-					getProducts()
-				}
-			} else {
-			getProducts()
-			}
+			// const productsString = localStorage.getItem('@products')
+			// if (productsString) {
+			// 	const localProducts = JSON.parse(productsString)
+			// 	if (localProducts.length > 0) {
+			// 		setProducts(localProducts)
+			// 	} else {
+			// 		getProducts()
+			// 	}
+			// } else {
+				getProducts()
+			// }
 		}
 		loadProduct()
 	}, [])
@@ -285,6 +286,7 @@ const Home = () => {
 					</div>
 				</div>
 			</section>
+			<CountdownTimer targetDate={'2023-05-02T08:49:36.490+00:00'} />
 		</div>
 	);
 };
