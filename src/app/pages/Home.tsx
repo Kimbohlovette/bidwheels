@@ -220,7 +220,7 @@ const Home = () => {
 						</div>
 					</div>
 				</div>
-				<div className="flex flex-row flex-wrap justify-center gap-16 [&>*]:flex-1">
+				<div className="flex flex-wrap [&>*]:min-w-[300px] gap-8 [&>*]:flex-1">
 					{products.map((car) => {
 						return (
 							<Link to={`/product/${car._id}`} state={car}>
