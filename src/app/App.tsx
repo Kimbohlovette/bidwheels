@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import AddCarForm from './pages/AddCarForm';
 import Shop from './pages/Shop';
+import ProductDetails from './pages/ProductDetails';
 
 export const base_url = 'https://api-bid4wheels.onrender.com/api/v1'
 
@@ -32,6 +33,10 @@ const routes = createBrowserRouter([
 			{
 				path: '/sell',
 				element: <AddCarForm />,
+			},
+			{
+				path: '/product/:id',
+				element: <ProductDetails />,
 			},
 		],
 	},
