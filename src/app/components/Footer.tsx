@@ -2,6 +2,7 @@ import React from 'react';
 import { BsFacebook, BsLinkedin, BsPinterest, BsTwitter } from 'react-icons/bs';
 import { ImInstagram } from 'react-icons/im';
 import { RiWhatsappFill } from 'react-icons/ri';
+import { NavLink } from 'react-router-dom';
 const Footer = () => {
 	const footerLogo = require('../assets/logo.png');
 	return (
@@ -14,7 +15,7 @@ const Footer = () => {
 							className="h-24 w-auto object-center object-contain aspect-video"
 							alt=""
 						/>
-						<ul className="flex flex-col gap-y-4 text-primary font-semibold mt-8">
+						<ul className="flex flex-col gap-y-4 text-primary font-semibold mt-8 [&>*]:nav-border-style [&>*:hover]:border-primary [&>*]:w-fit">
 							<li>Home</li>
 							<li>Shop</li>
 						</ul>
@@ -25,7 +26,7 @@ const Footer = () => {
 						<h1 className="text-primary text-2xl font-bold mb-8">
 							Our Customer Service
 						</h1>
-						<ul className="flex flex-col gap-y-4 text-primary font-semibold">
+						<ul className="flex flex-col gap-y-4 text-primary font-semibold [&>*]:nav-border-style [&>*:hover]:border-primary [&>*]:w-fit">
 							<li>Terms and Conditions</li>
 							<li>About Us</li>
 							<li>Contact</li>

@@ -14,4 +14,4 @@ const Car = ({ car }: any) => {
     )
 }
 
-export default Car
+export default Car;

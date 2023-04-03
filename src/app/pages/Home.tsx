@@ -31,48 +31,21 @@ const Home = () => {
 			localStorage.setItem('@products', JSON.stringify(productsFound.data.data))
 		}
 		const loadProduct = async () => {
-			// const productsString = localStorage.getItem('@products')
-			// console.log('productString: ', productsString)
-			// if (productsString) {
-			// 	const localProducts = JSON.parse(productsString)
-			// 	console.log('getting local: ', localProducts)
-			// 	if (localProducts.length > 0) {
-			// 		setProducts(localProducts)
-			// 	} else {
-			// 		getProducts()
-			// 	}
-			// } else {
+			const productsString = localStorage.getItem('@products')
+			if (productsString) {
+				const localProducts = JSON.parse(productsString)
+				if (localProducts.length > 0) {
+					setProducts(localProducts)
+				} else {
+					getProducts()
+				}
+			} else {
 			getProducts()
-			// }
+			}
 		}
 		loadProduct()
 	}, [])
-	// const cars = [
-	// 	{
-	// 		image: require("../assets/m23.jpeg"),
-	// 		name: "2023 Mini Coper",
-	// 		description:
-	// 			"The iconic mini coper has grown both larger and more advanced over the years, but it's still a small, agile car, with very attractive styling for 2023",
-	// 	},
-	// 	{
-	// 		image: require("../assets/t1.jpeg"),
-	// 		name: "2023 Toyota Bz4X Review",
-	// 		description:
-	// 			"Toyota finally enters the Ev game with a small crossover aimed at the heart of the market",
-	// 	},
-	// 	{
-	// 		image: require("../assets/b1.jpeg"),
-	// 		name: "Bentley Bentayga",
-	// 		description:
-	// 			"This is a mid-size luxury crossover SUV produced by Bentley Motors since the late 2015s",
-	// 	},
-	// 	{
-	// 		image: require("../assets/m1.jpeg"),
-	// 		name: "Mercedez-Benz",
-	// 		description:
-	// 			"The Mercedes-Benz CIS-class is a form-first art piece that just so happens to provide the practicality of a chic four-door Sedan. View 2023 CIs",
-	// 	},
-	// ];
+
 	let cars = []
 
 	cars = products.map((p) => {

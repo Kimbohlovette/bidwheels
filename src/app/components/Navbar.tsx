@@ -36,7 +36,7 @@ const Navbar = () => {
 						<li className="nav-border-style">Home</li>
 					</NavLink>
 					{(!user || user.role.code === 'buyer') && < NavLink to="/shop">
-						<li className="cursor-pointer">Buy</li>
+						<li className="nav-border-style">Buy</li>
 					</NavLink>}
 					{(!user || user.role.code === 'seller') && <NavLink to="/sell">
 						<li className="cursor-pointer">Sell</li>

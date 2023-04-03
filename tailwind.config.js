@@ -4,12 +4,11 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				
 				'primary': '#1b1263',
 				'primary-hover': '#3640eb',
-				'primary-light': '#9387b5'
-			}
+				'primary-light': '#9387b5',
+			},
 		},
 	},
-	plugins: [],
+	plugins: [require('@tailwindcss/forms')],
 };
