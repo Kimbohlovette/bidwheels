@@ -278,7 +278,6 @@ const Home = () => {
 					</div>
 				</div>
 			</section>
-			<CountdownTimer targetDate={"2023-05-02T08:49:36.490+00:00"} />
 		</div>
 	);
 };

@@ -4,22 +4,25 @@ import { MdOutlineGavel } from 'react-icons/md';
 import { MdLocationOn } from 'react-icons/md';
 import { IoSpeedometerSharp } from 'react-icons/io5';
 import { ProductType } from '../types';
+import { Link } from 'react-router-dom';
 
-export const BidButton = () => {
+export const BidButton = (props: { handleClick?: any, loading?: boolean }) => {
 	return (
-		<button className="text-white bg-primary button shadow-lg px-5 font-semibold text-sm">
+		<button className="text-white bg-primary button shadow-lg px-5 font-semibold text-sm" onClick={props.handleClick}>
 			<MdOutlineGavel className="inline mr-1" />
-			Bid
+			{(props.loading && props.loading === true) ? 'Wait...' : 'Bid'}
 		</button>
 	)
 }
 
-const Product = (props: { product: ProductType }) => {
+const Product = (props: { product: ProductType, setProduct: any }) => {
 	const image = require('../assets/' + props.product.coverImage);
 	return (
 		<div className="max-w-xs shadow-lg border rounded-sm border-slate-50">
 			<div>
-				<img src={image} alt="" />
+				<Link to={`/product/${props.product._id}`} state={props.product}>
+					<img src={image} alt="" />
+				</Link>
 			</div>
 			<div className="px-4 py-8">
 				<h1 className="font-semibold text-primary mb-2">
@@ -51,10 +54,12 @@ const Product = (props: { product: ProductType }) => {
 					<div className="text-primary font-extralight">
 						Limbe, Mile 4<MdLocationOn className="inline mx-1" />
 					</div>
-					<BidButton />
+					<BidButton handleClick={() => {
+						props.setProduct(props.product)
+					}} />
 				</div>
 			</div>
-		</div>
+		</div >
 	);
 };
 

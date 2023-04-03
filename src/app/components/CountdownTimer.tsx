@@ -35,14 +35,14 @@ const ShowCounter = ({ days, hours, minutes, seconds }: any) => {
             <a
                 href="/"
                 rel="noopener noreferrer"
-                className="flex flex-row gap-x-4"
+                className="flex flex-row gap-x-2"
             >
                 <DateTimeDisplay value={days} type={'Days'} isDanger={days <= 3} />
-                <p className={days <= 3 ? 'text-red-600 font-bold text-3xl' : 'text-primary font-bold text-3xl'}>:</p>
+                <p className={days <= 3 ? 'text-red-600 font-bold' : 'text-primary font-bold'}>:</p>
                 <DateTimeDisplay value={hours} type={'Hours'} isDanger={days <= 3} />
-                <p className={days <= 3 ? 'text-red-600 font-bold text-3xl' : 'text-primary font-bold text-3xl'}>:</p>
+                <p className={days <= 3 ? 'text-red-600 font-bold' : 'text-primary font-bold'}>:</p>
                 <DateTimeDisplay value={minutes} type={'Mins'} isDanger={days <= 3} />
-                <p className={days <= 3 ? 'text-red-600 font-bold text-3xl' : 'text-primary font-bold text-3xl'}>:</p>
+                <p className={days <= 3 ? 'text-red-600 font-bold' : 'text-primary font-bold'}>:</p>
                 <DateTimeDisplay value={seconds} type={'Seconds'} isDanger={days <= 3} />
             </a>
             <p className={'text-red-700 font-bold text-lg'}>Until bidding ends</p>

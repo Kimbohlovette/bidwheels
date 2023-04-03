@@ -4,11 +4,14 @@ import { ProductType } from "../types";
 import axios from "axios";
 import { base_url } from "../App";
 import { Link } from "react-router-dom";
+import BiddingModal from "../components/BiddingModal";
 
 const bgImage = require('../assets/shop-hero.jpg')
 
 const Shop = () => {
 	const [products, setProducts] = useState<ProductType[]>([]);
+	const [showBidModal, setShowBidModal] = useState(false);
+	const [product, setProduct] = useState<ProductType>()
 	useEffect(() => {
 		const getProducts = async () => {
 			const productsFound = await axios.get(`${base_url}/product`);
@@ -102,12 +105,12 @@ const Shop = () => {
 						</div>
 						<div className="grid grid-cols-2 md:grid-cols-3 gap-8 px-8">
 							{products.map((product, i) => (
-								<Link to={`/product/${product._id}`} state={product} key={i}>
-									<Product product={product} />
-								</Link>
+								
+									<Product product={product} setProduct={setProduct} />
 							))}
 						</div>
 					</div>
+					{(product && <BiddingModal product={product} />)}
 				</div>
 			</section>
 		</div>
