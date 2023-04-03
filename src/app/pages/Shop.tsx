@@ -105,12 +105,11 @@ const Shop = () => {
 						</div>
 						<div className="grid grid-cols-2 md:grid-cols-3 gap-8 px-8">
 							{products.map((product, i) => (
-								
 									<Product product={product} setProduct={setProduct} />
 							))}
 						</div>
 					</div>
-					{(product && <BiddingModal product={product} />)}
+					{(product && <BiddingModal product={product} setProduct={setProduct}/>)}
 				</div>
 			</section>
 		</div>

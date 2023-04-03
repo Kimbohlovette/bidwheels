@@ -7,7 +7,7 @@ import { ProductType } from '../types';
 import axios from 'axios';
 import { base_url } from '../App';
 
-const BiddingModal = (props: { product: ProductType }) => {
+const BiddingModal = (props: { product: ProductType, setProduct: any }) => {
 	let token: any;
 	const tokenString = localStorage.getItem("@token")
 	if (tokenString) {
@@ -57,6 +57,7 @@ const BiddingModal = (props: { product: ProductType }) => {
 				}
 			})
 			console.log('bidData: ', bidData)
+			props.setProduct(null)
 		} catch (error) {
 			console.log('error occured on bidding: ', error)
 		} finally {
