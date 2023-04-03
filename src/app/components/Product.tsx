@@ -3,6 +3,7 @@ import { AiFillInfoCircle } from 'react-icons/ai';
 import { MdOutlineGavel } from 'react-icons/md';
 import { MdLocationOn } from 'react-icons/md';
 import { IoSpeedometerSharp } from 'react-icons/io5';
+import { ProductType } from '../types';
 
 const Product = (props: { product: ProductType }) => {
 	const image = require('../assets/m23.jpeg');

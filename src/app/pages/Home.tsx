@@ -6,23 +6,15 @@ import Car from "../components/Car";
 import { MdEmail } from 'react-icons/md';
 import axios from "axios";
 import { base_url } from "../App";
+import { Link } from "react-router-dom";
+import { ProductType } from "../types";
 
 const whoweare = require("../assets/whoweare.png");
 const bgImage = require('../assets/hero-bg-image1.jpg');
 
 
 const Home = () => {
-	const [products, setProducts] = useState<{
-		coverImage: string,
-		name: string,
-		images: string[],
-		description: string,
-		minPrice: number,
-		bidDuration: number,
-		carModel: string,
-		fuelType: string,
-		engineType: string
-	}[]>([])
+	const [products, setProducts] = useState<ProductType[]>([])
 	useEffect(() => {
 		const getProducts = async () => {
 			const productsFound = await axios.get(`${base_url}/product`);
@@ -45,19 +37,6 @@ const Home = () => {
 		}
 		loadProduct()
 	}, [])
-
-	let cars = []
-
-	cars = products.map((p) => {
-		const carObj = {
-			name: p.name,
-			image: require(`../assets/${p.coverImage}`),
-			description: p.description
-		}
-
-		return carObj
-	})
-
 
 	const faqs: { title: string; text: string }[] = [
 		{
@@ -242,8 +221,12 @@ const Home = () => {
 					</div>
 				</div>
 				<div className="flex flex-row flex-wrap justify-center gap-16 [&>*]:flex-1">
-					{cars.map((car) => {
-						return <Car car={car} />;
+					{products.map((car) => {
+						return (
+							<Link to={`/product/${car._id}`} state={car}>
+								<Car car={car} />
+							</Link>
+						)
 					})}
 				</div>
 			</section>
