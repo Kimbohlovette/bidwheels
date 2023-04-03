@@ -3,14 +3,18 @@
 @tailwind utilities;
 
 @layer components {
-    .input-field {
-      @apply outline-none py-2 px-4 rounded-sm border flex-1 min-w-0;
-    }
-    .button {
-      @apply py-2 outline-none rounded-sm;
-    }
+  .input-field {
+    @apply outline-none py-2 px-4 rounded-sm border flex-1 min-w-0;
+  }
+  .button {
+    @apply py-2 outline-none rounded-sm;
+  }
 
-    .nav-border-style {
-      @apply border-b-2 border-transparent hover:border-slate-50 transition-transform duration-200 ease-linear;
-    }
+  .nav-border-style {
+    @apply border-b-2 border-transparent hover:border-slate-50 transition-transform duration-200 ease-linear;
+  }
+
+  .bid-table-row {
+    @apply grid grid-cols-3 py-4 px-4
+  }
 }
